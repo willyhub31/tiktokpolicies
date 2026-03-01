@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TikTok OAuth Callback</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 720px;
+      margin: 48px auto;
+      padding: 0 16px;
+      line-height: 1.5;
+      color: #111;
+    }
+    h1 { margin-bottom: 8px; }
+    .muted { color: #555; margin-bottom: 24px; }
+    .box {
+      border: 1px solid #ddd;
+      background: #fafafa;
+      border-radius: 8px;
+      padding: 12px;
+      margin: 12px 0;
+      word-break: break-all;
+    }
+    button {
+      border: 1px solid #111;
+      background: #111;
+      color: #fff;
+      border-radius: 6px;
+      padding: 10px 14px;
+      cursor: pointer;
+      margin-top: 8px;
+    }
+  </style>
+</head>
+<body>
+  <h1>TikTok Authorization Complete</h1>
+  <p class="muted">Copy the <strong>code</strong> and send it to your automation tool.</p>
+
+  <div><strong>Code</strong></div>
+  <div id="codeBox" class="box">Not found</div>
+  <button id="copyCodeBtn" type="button">Copy code</button>
+
+  <div style="margin-top:20px;"><strong>State</strong></div>
+  <div id="stateBox" class="box">Not found</div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const code = params.get("code");
+    const state = params.get("state");
+    const err = params.get("error") || params.get("error_description");
+
+    const codeBox = document.getElementById("codeBox");
+    const stateBox = document.getElementById("stateBox");
+    const copyBtn = document.getElementById("copyCodeBtn");
+
+    if (err) {
+      codeBox.textContent = "Authorization failed: " + err;
+      copyBtn.disabled = true;
+    } else if (code) {
+      codeBox.textContent = code;
+    } else {
+      codeBox.textContent = "No code in URL. Start OAuth again.";
+      copyBtn.disabled = true;
+    }
+
+    stateBox.textContent = state || "Not provided";
+
+    copyBtn.addEventListener("click", async () => {
+      try {
+        await navigator.clipboard.writeText(code || "");
+        copyBtn.textContent = "Copied";
+      } catch (e) {
+        copyBtn.textContent = "Copy failed";
+      }
+    });
+  </script>
+</body>
+</html>
