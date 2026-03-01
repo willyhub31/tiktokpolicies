@@ -45,15 +45,26 @@
   <div style="margin-top:20px;"><strong>State</strong></div>
   <div id="stateBox" class="box">Not found</div>
 
+  <div style="margin-top:20px;"><strong>Raw callback URL</strong></div>
+  <div id="rawUrlBox" class="box">-</div>
+
   <script>
-    const params = new URLSearchParams(window.location.search);
-    const code = params.get("code");
-    const state = params.get("state");
-    const err = params.get("error") || params.get("error_description");
+    const queryParams = new URLSearchParams(window.location.search);
+    const hashString = window.location.hash.startsWith("#") ? window.location.hash.slice(1) : "";
+    const hashParams = new URLSearchParams(hashString);
+
+    const code = queryParams.get("code") || hashParams.get("code");
+    const state = queryParams.get("state") || hashParams.get("state");
+    const err = queryParams.get("error")
+      || queryParams.get("error_description")
+      || hashParams.get("error")
+      || hashParams.get("error_description");
 
     const codeBox = document.getElementById("codeBox");
     const stateBox = document.getElementById("stateBox");
+    const rawUrlBox = document.getElementById("rawUrlBox");
     const copyBtn = document.getElementById("copyCodeBtn");
+    rawUrlBox.textContent = window.location.href;
 
     if (err) {
       codeBox.textContent = "Authorization failed: " + err;
