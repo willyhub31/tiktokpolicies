@@ -4,62 +4,109 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Le8Geek Docs</title>
-  <style>
-    body { margin: 0; font-family: "Segoe UI", Arial, sans-serif; background: #f6f7fb; color: #111; }
-    .wrap { max-width: 980px; margin: 0 auto; padding: 24px 16px 56px; }
-    .panel { background: #fff; border: 1px solid #e5e7ef; border-radius: 14px; padding: 18px; margin-bottom: 14px; }
-    h1, h2 { margin-top: 0; }
-    code { background: #f0f2f8; padding: 2px 6px; border-radius: 6px; }
-    .muted { color: #535a6c; }
-    a { color: #0055cc; text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    .back { margin-bottom: 12px; display: inline-block; }
-  </style>
+  <meta name="description" content="Technical documentation for Le8Geek web integration with TikTok Login Kit and Content Posting API.">
+  <link rel="icon" type="image/svg+xml" href="./assets/le8geek-mark.svg">
+  <link rel="stylesheet" href="./assets/site.css">
 </head>
 <body>
-  <div class="wrap">
-    <a class="back" href="./">&larr; Back to Home</a>
-    <section class="panel">
-      <h1>Product Documentation</h1>
-      <p class="muted">
-        This page documents how Le8Geek Creator Suite integrates with TikTok for creator publishing workflows.
+  <div class="shell">
+    <a class="back-link" href="./">Back to Le8Geek home</a>
+
+    <section class="stack">
+      <h1 class="section-title">Integration documentation</h1>
+      <p class="section-intro">
+        This page documents the exact public web setup used by Le8Geek for TikTok Login Kit and Content Posting API.
       </p>
     </section>
 
-    <section class="panel">
-      <h2>Supported Products and Scopes</h2>
-      <ul>
-        <li>Login Kit</li>
-        <li>Content Posting API</li>
-        <li>Share Kit (optional usage)</li>
-      </ul>
-      <p>Current scopes: <code>user.info.basic</code>, <code>video.upload</code></p>
+    <section class="section">
+      <div class="grid">
+        <article class="card">
+          <h2>Official website</h2>
+          <p><a href="https://willyhub31.github.io/tiktokpolicies/">https://willyhub31.github.io/tiktokpolicies/</a></p>
+        </article>
+        <article class="card">
+          <h2>Redirect URI for Web</h2>
+          <p><a href="https://willyhub31.github.io/tiktokpolicies/callback/">https://willyhub31.github.io/tiktokpolicies/callback/</a></p>
+        </article>
+      </div>
     </section>
 
-    <section class="panel">
-      <h2>How Upload Works</h2>
-      <ol>
-        <li>User signs in with TikTok OAuth.</li>
-        <li>User selects a generated campaign video from Airtable workflow.</li>
-        <li>System uploads video draft through TikTok API.</li>
-        <li>User reviews post content, updates copy and affiliate links, then publishes.</li>
-      </ol>
+    <section class="section">
+      <article class="stack">
+        <h2>Selected TikTok products and scopes</h2>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Product</th>
+                <th>Scope</th>
+                <th>Purpose in Le8Geek</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Login Kit</td>
+                <td><code>user.info.basic</code></td>
+                <td>Authenticate the user and associate the authorized TikTok account with the upload workflow.</td>
+              </tr>
+              <tr>
+                <td>Content Posting API</td>
+                <td><code>video.upload</code></td>
+                <td>Upload an approved video from the Le8Geek workflow as a draft or private post.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="warning" style="margin-top:14px;">
+          <strong>Share Kit is not used.</strong> Le8Geek is a web app and only requests the products shown above.
+        </div>
+      </article>
     </section>
 
-    <section class="panel">
-      <h2>Operational Notes</h2>
-      <ul>
-        <li>The app uses explicit user authorization and does not post to accounts without consent.</li>
-        <li>Draft/private-first flow is used for quality checks and policy-safe review.</li>
-        <li>Users remain responsible for final content compliance and disclosure obligations.</li>
-      </ul>
+    <section class="section">
+      <article class="stack">
+        <h2>Web upload flow</h2>
+        <ol class="steps">
+          <li>User opens the Le8Geek web app and starts TikTok sign-in.</li>
+          <li>User authorizes the app through Login Kit.</li>
+          <li>TikTok redirects the user back to the registered callback URL on this website.</li>
+          <li>User chooses an approved product video that was prepared in the Le8Geek workflow.</li>
+          <li>Le8Geek uploads the selected video through Content Posting API.</li>
+          <li>User completes final caption edits, disclosure, and affiliate links inside TikTok.</li>
+        </ol>
+      </article>
     </section>
 
-    <section class="panel">
-      <h2>Legal</h2>
-      <p><a href="./terms.html/">Terms of Service</a></p>
-      <p><a href="./privacy-policy.html/">Privacy Policy</a></p>
+    <section class="section">
+      <div class="grid">
+        <article class="card">
+          <h2>Authorization model</h2>
+          <p>
+            Le8Geek only acts after the user explicitly authorizes the account. The app does not post to TikTok
+            without a user-triggered workflow.
+          </p>
+        </article>
+        <article class="card">
+          <h2>Review environment</h2>
+          <p>
+            TikTok review demonstrations are performed in <a href="./review.html">sandbox mode</a> with the same
+            public website and redirect path used by the web app.
+          </p>
+        </article>
+      </div>
     </section>
+
+    <footer class="footer">
+      <div class="footer-links">
+        <a href="./">Home</a>
+        <a href="./review.html">Review flow</a>
+        <a href="./support.html">Support</a>
+        <a href="./privacy-policy.html/">Privacy Policy</a>
+        <a href="./terms.html/">Terms of Service</a>
+      </div>
+      <small>Support email: <a href="mailto:le8geek@gmail.com">le8geek@gmail.com</a></small>
+    </footer>
   </div>
 </body>
 </html>

@@ -1,52 +1,41 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>TikTok OAuth Callback</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      max-width: 720px;
-      margin: 48px auto;
-      padding: 0 16px;
-      line-height: 1.5;
-      color: #111;
-    }
-    h1 { margin-bottom: 8px; }
-    .muted { color: #555; margin-bottom: 24px; }
-    .box {
-      border: 1px solid #ddd;
-      background: #fafafa;
-      border-radius: 8px;
-      padding: 12px;
-      margin: 12px 0;
-      word-break: break-all;
-    }
-    button {
-      border: 1px solid #111;
-      background: #111;
-      color: #fff;
-      border-radius: 6px;
-      padding: 10px 14px;
-      cursor: pointer;
-      margin-top: 8px;
-    }
-  </style>
+  <title>Le8Geek Callback</title>
+  <meta name="description" content="Registered OAuth callback page for the Le8Geek TikTok Login Kit web integration.">
+  <link rel="icon" type="image/svg+xml" href="../assets/le8geek-mark.svg">
+  <link rel="stylesheet" href="../assets/site.css">
 </head>
 <body>
-  <h1>TikTok Authorization Complete</h1>
-  <p class="muted">Copy the <strong>code</strong> and send it to your automation tool.</p>
+  <div class="shell" style="max-width: 860px;">
+    <a class="back-link" href="../">Back to Le8Geek home</a>
 
-  <div><strong>Code</strong></div>
-  <div id="codeBox" class="box">Not found</div>
-  <button id="copyCodeBtn" type="button">Copy code</button>
+    <section class="stack">
+      <h1 class="section-title">Le8Geek OAuth callback</h1>
+      <p class="section-intro">
+        This page is the registered redirect URI used by the Le8Geek web app for TikTok Login Kit.
+      </p>
 
-  <div style="margin-top:20px;"><strong>State</strong></div>
-  <div id="stateBox" class="box">Not found</div>
+      <div class="grid">
+        <article class="card">
+          <h2>Authorization code</h2>
+          <p id="codeBox"><code>Not found</code></p>
+          <a id="copyCodeBtn" class="button primary" href="#">Copy code</a>
+        </article>
+        <article class="card">
+          <h2>State</h2>
+          <p id="stateBox"><code>Not provided</code></p>
+        </article>
+      </div>
 
-  <div style="margin-top:20px;"><strong>Raw callback URL</strong></div>
-  <div id="rawUrlBox" class="box">-</div>
+      <article class="card" style="margin-top:14px;">
+        <h2>Raw callback URL</h2>
+        <p id="rawUrlBox" style="word-break: break-all;"><code>-</code></p>
+      </article>
+    </section>
+  </div>
 
   <script>
     const queryParams = new URLSearchParams(window.location.search);
@@ -64,25 +53,29 @@
     const stateBox = document.getElementById("stateBox");
     const rawUrlBox = document.getElementById("rawUrlBox");
     const copyBtn = document.getElementById("copyCodeBtn");
-    rawUrlBox.textContent = window.location.href;
+
+    rawUrlBox.innerHTML = "<code>" + window.location.href + "</code>";
 
     if (err) {
-      codeBox.textContent = "Authorization failed: " + err;
-      copyBtn.disabled = true;
+      codeBox.innerHTML = "<code>Authorization failed: " + err + "</code>";
+      copyBtn.style.pointerEvents = "none";
+      copyBtn.style.opacity = "0.5";
     } else if (code) {
-      codeBox.textContent = code;
+      codeBox.innerHTML = "<code>" + code + "</code>";
     } else {
-      codeBox.textContent = "No code in URL. Start OAuth again.";
-      copyBtn.disabled = true;
+      codeBox.innerHTML = "<code>No code in URL. Start OAuth again.</code>";
+      copyBtn.style.pointerEvents = "none";
+      copyBtn.style.opacity = "0.5";
     }
 
-    stateBox.textContent = state || "Not provided";
+    stateBox.innerHTML = "<code>" + (state || "Not provided") + "</code>";
 
-    copyBtn.addEventListener("click", async () => {
+    copyBtn.addEventListener("click", async (event) => {
+      event.preventDefault();
       try {
         await navigator.clipboard.writeText(code || "");
         copyBtn.textContent = "Copied";
-      } catch (e) {
+      } catch (error) {
         copyBtn.textContent = "Copy failed";
       }
     });

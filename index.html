@@ -3,189 +3,192 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Le8Geek Creator Suite</title>
-  <meta name="description" content="Le8Geek Creator Suite helps creators generate product videos, review drafts, and publish to TikTok with Login Kit and Content Posting API.">
-  <style>
-    :root {
-      --bg: #f3f0e8;
-      --paper: #fffdf8;
-      --ink: #141414;
-      --muted: #525252;
-      --accent: #006466;
-      --accent-2: #ff7b00;
-      --line: #d4cec2;
-    }
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      font-family: "Segoe UI", "Helvetica Neue", sans-serif;
-      color: var(--ink);
-      background:
-        radial-gradient(circle at 90% 8%, #ffe8c2 0%, transparent 28%),
-        radial-gradient(circle at 10% 20%, #d6efe7 0%, transparent 34%),
-        var(--bg);
-      line-height: 1.55;
-    }
-    .wrap { max-width: 1040px; margin: 0 auto; padding: 24px 18px 64px; }
-    .topbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 16px;
-      margin-bottom: 22px;
-      padding: 14px 18px;
-      border: 1px solid var(--line);
-      border-radius: 14px;
-      background: rgba(255, 255, 255, 0.7);
-      backdrop-filter: blur(4px);
-    }
-    .brand { font-weight: 800; letter-spacing: 0.3px; }
-    .nav a {
-      color: var(--ink);
-      text-decoration: none;
-      margin-left: 14px;
-      font-weight: 600;
-      font-size: 14px;
-    }
-    .hero {
-      background: var(--paper);
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      padding: 26px;
-      margin-bottom: 18px;
-      box-shadow: 0 8px 20px rgba(26, 26, 26, 0.04);
-    }
-    .kicker {
-      display: inline-block;
-      background: #d6efe7;
-      color: #004f50;
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 0.8px;
-      text-transform: uppercase;
-      padding: 6px 10px;
-      border-radius: 999px;
-    }
-    h1 { margin: 14px 0 10px; font-size: clamp(28px, 5vw, 42px); line-height: 1.1; }
-    .lead { color: var(--muted); max-width: 720px; }
-    .cta-row { margin-top: 18px; display: flex; gap: 10px; flex-wrap: wrap; }
-    .btn {
-      display: inline-block;
-      text-decoration: none;
-      padding: 10px 14px;
-      border-radius: 10px;
-      border: 1px solid var(--line);
-      font-weight: 700;
-      font-size: 14px;
-    }
-    .btn.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
-    .btn.secondary { background: #fff; color: var(--ink); }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 14px;
-      margin: 16px 0;
-    }
-    .card {
-      background: var(--paper);
-      border: 1px solid var(--line);
-      border-radius: 14px;
-      padding: 16px;
-    }
-    .card h2 { margin: 0 0 8px; font-size: 18px; }
-    .card p, .card li { color: var(--muted); }
-    ul { margin: 8px 0 0 18px; padding: 0; }
-    .steps ol { margin: 8px 0 0 18px; padding: 0; color: var(--muted); }
-    .notice {
-      margin-top: 14px;
-      background: #fff4e8;
-      border: 1px solid #f5d6b4;
-      border-radius: 10px;
-      padding: 12px;
-      color: #6d3c00;
-      font-size: 14px;
-    }
-    footer {
-      margin-top: 20px;
-      padding: 16px;
-      border: 1px solid var(--line);
-      border-radius: 12px;
-      background: rgba(255, 255, 255, 0.8);
-      color: var(--muted);
-      font-size: 14px;
-    }
-    @media (max-width: 780px) {
-      .grid { grid-template-columns: 1fr; }
-      .nav { display: none; }
-    }
-  </style>
+  <title>Le8Geek</title>
+  <meta name="description" content="Le8Geek is the official website for a web app that organizes product creatives, manages review workflows, and uploads private TikTok drafts through Login Kit and Content Posting API.">
+  <link rel="icon" type="image/svg+xml" href="./assets/le8geek-mark.svg">
+  <link rel="stylesheet" href="./assets/site.css">
 </head>
 <body>
-  <div class="wrap">
-    <header class="topbar">
-      <div class="brand">Le8Geek Creator Suite</div>
-      <nav class="nav">
-        <a href="#features">Features</a>
+  <div class="shell">
+    <header class="site-header">
+      <div class="brand-lockup">
+        <img src="./assets/le8geek-mark.svg" alt="Le8Geek brand mark">
+        <div class="brand-copy">
+          <strong>Le8Geek</strong>
+          <span>Web app for TikTok Shop creative workflow</span>
+        </div>
+      </div>
+      <nav class="site-nav">
+        <a href="#overview">Overview</a>
         <a href="#workflow">Workflow</a>
         <a href="./docs.html">Docs</a>
+        <a href="./review.html">Review</a>
         <a href="./support.html">Support</a>
+        <a href="./privacy-policy.html/">Privacy</a>
+        <a href="./terms.html/">Terms</a>
       </nav>
     </header>
 
     <section class="hero">
-      <span class="kicker">TikTok Creator Tools</span>
-      <h1>Generate Product Videos, Review Privately, Then Publish to TikTok</h1>
-      <p class="lead">
-        Le8Geek Creator Suite is a creator workflow app for e-commerce affiliates.
-        It generates product media, stores campaign assets, and uploads TikTok drafts for manual review
-        before final publication.
+      <div>
+        <span class="eyebrow">Official Website</span>
+        <h1>Le8Geek helps operators prepare product creatives and send private TikTok drafts for review.</h1>
+        <p>
+          Le8Geek is a web-based operations tool for TikTok Shop creators and affiliates. It keeps product references,
+          campaign prompts, generated assets, review status, and final upload actions in one workflow before the user
+          manually edits the draft and publishes it from TikTok.
+        </p>
+        <div class="hero-actions">
+          <a class="button primary" href="./docs.html">Read integration docs</a>
+          <a class="button secondary" href="./review.html">Open review page</a>
+        </div>
+      </div>
+
+      <aside class="status-board">
+        <div class="status-stack">
+          <strong>Current TikTok products in use</strong>
+          <div class="pill-row">
+            <span class="pill">Login Kit</span>
+            <span class="pill">Content Posting API</span>
+            <span class="pill">Web platform</span>
+            <span class="pill">Sandbox test flow</span>
+          </div>
+        </div>
+        <div class="status-stack">
+          <strong>Review-ready details</strong>
+          <div class="mini-grid">
+            <div class="mini-card">
+              <span class="label">Official website</span>
+              <span class="value">willyhub31.github.io/tiktokpolicies</span>
+            </div>
+            <div class="mini-card">
+              <span class="label">Redirect URI</span>
+              <span class="value">/callback/</span>
+            </div>
+            <div class="mini-card">
+              <span class="label">Scopes</span>
+              <span class="value">user.info.basic, video.upload</span>
+            </div>
+            <div class="mini-card">
+              <span class="label">Support</span>
+              <span class="value">le8geek@gmail.com</span>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <section id="overview" class="section">
+      <h2 class="section-title">What Le8Geek does</h2>
+      <p class="section-intro">
+        The app is designed for product-video operators who need a controlled path from source product image
+        to TikTok draft upload. It is not a consumer social app and it does not publish without explicit user action.
       </p>
-      <div class="cta-row">
-        <a class="btn primary" href="./docs.html">Open Product Docs</a>
-        <a class="btn secondary" href="./support.html">Contact Support</a>
+      <div class="grid">
+        <article class="card">
+          <h2>Creative operations</h2>
+          <p>
+            Users collect product references, manage prompts, store approved outputs, and track publishing status
+            in a structured workflow before sending any media to TikTok.
+          </p>
+        </article>
+        <article class="card">
+          <h2>Private-first posting</h2>
+          <p>
+            Le8Geek uploads videos as drafts or private posts so the user can add final captions, disclosures,
+            and affiliate links inside TikTok before publishing publicly.
+          </p>
+        </article>
       </div>
     </section>
 
-    <section id="features" class="grid">
-      <article class="card">
-        <h2>Core Features</h2>
-        <ul>
-          <li>Reference-based image and video generation for product campaigns.</li>
-          <li>Airtable-driven workflow for prompt, asset, and publishing status tracking.</li>
-          <li>TikTok Login Kit + Content Posting API integration.</li>
-          <li>Private-first posting flow for editing captions and affiliate links before publishing.</li>
-        </ul>
-      </article>
-      <article class="card">
-        <h2>Authorized TikTok Usage</h2>
-        <ul>
-          <li>Login Kit for user authentication and account linking.</li>
-          <li>Scope: <code>user.info.basic</code> for identity and account mapping.</li>
-          <li>Scope: <code>video.upload</code> for draft upload workflow.</li>
-          <li>Users explicitly authorize before any upload action.</li>
-        </ul>
-      </article>
-    </section>
+    <section class="section">
+      <div class="split">
+        <article class="stack">
+          <h2>Authorized TikTok usage</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Product</th>
+                  <th>Scope</th>
+                  <th>Why it is used</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Login Kit</td>
+                  <td><code>user.info.basic</code></td>
+                  <td>User authentication and account linking before any upload action.</td>
+                </tr>
+                <tr>
+                  <td>Content Posting API</td>
+                  <td><code>video.upload</code></td>
+                  <td>Upload a selected approved video as a TikTok draft or private post.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
 
-    <section id="workflow" class="card steps">
-      <h2>End-to-End Workflow</h2>
-      <ol>
-        <li>User logs in with TikTok via OAuth.</li>
-        <li>User selects product references and campaign settings.</li>
-        <li>System generates media drafts and stores them in Airtable.</li>
-        <li>System uploads selected video to TikTok as a draft/private flow.</li>
-        <li>User reviews and edits post details (including affiliate links) before final publish.</li>
-      </ol>
-      <div class="notice">
-        This website is the official web presence for the Le8Geek TikTok integration,
-        including product documentation, support information, and legal pages.
+        <article class="stack">
+          <h2>Important review notes</h2>
+          <div class="warning">
+            <strong>Le8Geek does not use Share Kit.</strong> The web app only uses Login Kit and Content Posting API.
+          </div>
+          <ul>
+            <li>All TikTok actions require explicit user authorization.</li>
+            <li>The callback and website are hosted on the same public domain path.</li>
+            <li>Sandbox is used to demonstrate the integration during review.</li>
+            <li>Legal pages and support contact are visible on the website without opening a menu.</li>
+          </ul>
+        </article>
       </div>
     </section>
 
-    <footer>
-      <div>Legal: <a href="./privacy-policy.html/">Privacy Policy</a> | <a href="./terms.html/">Terms of Service</a></div>
-      <div>OAuth Callback: <a href="./callback/">/callback/</a></div>
-      <div>Support Email: <a href="mailto:le8geek@gmail.com">le8geek@gmail.com</a></div>
+    <section id="workflow" class="section">
+      <h2 class="section-title">End-to-end workflow</h2>
+      <p class="section-intro">The review flow is intentionally simple and auditable.</p>
+      <div class="grid three">
+        <article class="card">
+          <h2>1. Connect account</h2>
+          <p>User signs in with TikTok through the registered Login Kit OAuth flow.</p>
+        </article>
+        <article class="card">
+          <h2>2. Prepare campaign</h2>
+          <p>User selects a product, reviews generated creatives, and chooses the final asset.</p>
+        </article>
+        <article class="card">
+          <h2>3. Upload draft</h2>
+          <p>Le8Geek uploads the approved video through Content Posting API for final manual review in TikTok.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <article class="stack">
+        <h2>Public website and callback details</h2>
+        <ul>
+          <li>Website URL: <a href="https://willyhub31.github.io/tiktokpolicies/">https://willyhub31.github.io/tiktokpolicies/</a></li>
+          <li>Redirect URI for web: <a href="https://willyhub31.github.io/tiktokpolicies/callback/">https://willyhub31.github.io/tiktokpolicies/callback/</a></li>
+          <li>Support email: <a href="mailto:le8geek@gmail.com">le8geek@gmail.com</a></li>
+        </ul>
+        <div class="notice">
+          This website is the official public web presence for <strong>Le8Geek</strong>. It documents the app,
+          its supported TikTok products, its legal policies, and its review environment.
+        </div>
+      </article>
+    </section>
+
+    <footer class="footer">
+      <div class="footer-links">
+        <a href="./docs.html">Documentation</a>
+        <a href="./review.html">Review flow</a>
+        <a href="./support.html">Support</a>
+        <a href="./privacy-policy.html/">Privacy Policy</a>
+        <a href="./terms.html/">Terms of Service</a>
+      </div>
+      <small>Le8Geek is a web app for TikTok Shop operators. It is not affiliated with TikTok.</small>
     </footer>
   </div>
 </body>

@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Le8Geek Review Flow</title>
+  <meta name="description" content="Sandbox demonstration checklist for the Le8Geek TikTok web integration review.">
+  <link rel="icon" type="image/svg+xml" href="./assets/le8geek-mark.svg">
+  <link rel="stylesheet" href="./assets/site.css">
+</head>
+<body>
+  <div class="shell">
+    <a class="back-link" href="./">Back to Le8Geek home</a>
+
+    <section class="stack">
+      <h1 class="section-title">Sandbox review flow</h1>
+      <p class="section-intro">
+        This page summarizes the exact end-to-end flow demonstrated for TikTok app review.
+      </p>
+    </section>
+
+    <section class="section">
+      <div class="split">
+        <article class="stack">
+          <h2>Products demonstrated</h2>
+          <ul>
+            <li>Login Kit</li>
+            <li>Content Posting API</li>
+          </ul>
+          <h2>Scopes demonstrated</h2>
+          <ul>
+            <li><code>user.info.basic</code></li>
+            <li><code>video.upload</code></li>
+          </ul>
+        </article>
+
+        <article class="stack">
+          <h2>Review environment</h2>
+          <ul>
+            <li>Platform: Web</li>
+            <li>Website URL: <a href="https://willyhub31.github.io/tiktokpolicies/">https://willyhub31.github.io/tiktokpolicies/</a></li>
+            <li>Redirect URI: <a href="https://willyhub31.github.io/tiktokpolicies/callback/">https://willyhub31.github.io/tiktokpolicies/callback/</a></li>
+            <li>TikTok review demonstration: sandbox test account</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <article class="stack">
+        <h2>What the demo video shows</h2>
+        <ol class="steps">
+          <li>Open the public Le8Geek website.</li>
+          <li>Start TikTok Login Kit on the web app.</li>
+          <li>Authorize the sandbox TikTok account.</li>
+          <li>Return to the registered callback URL on the same website.</li>
+          <li>Select an approved video in the Le8Geek workflow.</li>
+          <li>Upload the selected file with Content Posting API.</li>
+          <li>Show the uploaded draft/private result in the sandbox TikTok account.</li>
+        </ol>
+      </article>
+    </section>
+
+    <section class="section">
+      <article class="stack">
+        <h2>Why sandbox is used</h2>
+        <p>
+          Le8Geek follows TikTok review guidance and uses sandbox to demonstrate the integration before production approval.
+          The production app only requests the products and scopes that are shown in the sandbox demo.
+        </p>
+      </article>
+    </section>
+
+    <footer class="footer">
+      <div class="footer-links">
+        <a href="./">Home</a>
+        <a href="./docs.html">Docs</a>
+        <a href="./support.html">Support</a>
+        <a href="./privacy-policy.html/">Privacy Policy</a>
+        <a href="./terms.html/">Terms of Service</a>
+      </div>
+      <small>Support email: <a href="mailto:le8geek@gmail.com">le8geek@gmail.com</a></small>
+    </footer>
+  </div>
+</body>
+</html>
